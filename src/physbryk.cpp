@@ -24,14 +24,26 @@ PhysBryk::PhysBryk(int pin)
 	_pin = pin;
 }
 
-void PhysBryk::doSomethingPublic()
+bool PhysBryk::begin()
+{
+	// if(!_apds9960.begin()) return false;
+	// _apds9960.enableProximity(true);
+  return true;
+}
+
+void PhysBryk::end()
+{
+	// _apds9960.end();
+}
+
+void PhysBryk::blynk()
 {
 	digitalWrite(_pin, HIGH);   // turn the LED on (HIGH is the voltage level)
 	delay(500);
-	doSomethingPrivate();
+	blynkPrivate();
 }
 
-void PhysBryk::doSomethingPrivate()
+void PhysBryk::blynkPrivate()
 {
 	digitalWrite(_pin, LOW);   // turn the LED on (HIGH is the voltage level)
 	delay(500);

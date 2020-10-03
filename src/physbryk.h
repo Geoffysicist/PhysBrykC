@@ -18,15 +18,21 @@
 
 // the #include statment and code go here...
 #include "Arduino.h"
+// #include <Adafruit_APDS9960.h>
+// #include <Arduino_APDS9960.h>
+
 
 class PhysBryk
 {
   public:
     PhysBryk(int pin);
-    void doSomethingPublic();
+	  bool begin();
+	  void end();
+    void blynk();
   private:
-	int _pin;
-    void doSomethingPrivate();
+	  int _pin;
+	  // Adafruit_APDS9960 _apds9960; // proximity, light, color, gesture
+    void blynkPrivate();
 };
 
 #endif
