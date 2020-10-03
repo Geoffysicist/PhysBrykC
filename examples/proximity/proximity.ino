@@ -2,7 +2,7 @@
 #include <Arduino_APDS9960.h>
 
 PhysBryk thisBryk(LED_BUILTIN);
-bool brykConnected;
+bool success;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
@@ -10,7 +10,7 @@ void setup() {
     Serial.begin(115200);
     // while (!Serial) delay(10);
     Serial.println("PhysBryk Proximity Demo");
-    if (thisBryk.begin()) brykConnected = true;
+    if (thisBryk.begin()) success = true;
     // else Serial.println("the Bryk is stuffed")
   
 }
@@ -18,6 +18,6 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
   thisBryk.blynk();
-  Serial.println(brykConnected);
+  if (success) Serial.println("success");
   
 }
