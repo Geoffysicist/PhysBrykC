@@ -18,21 +18,27 @@
 
 // the #include statment and code go here...
 #include "Arduino.h"
-// #include <Adafruit_APDS9960.h>
+#include <Adafruit_APDS9960.h>
 // #include <Arduino_APDS9960.h>
+#include <ArduinoBLE.h>
+
 
 
 class PhysBryk
 {
-  public:
-    PhysBryk(int pin);
-	  bool begin();
-	  void end();
-    void blynk();
-  private:
-	  int _pin;
-	  // Adafruit_APDS9960 _apds9960; // proximity, light, color, gesture
-    void blynkPrivate();
+	public:
+    	PhysBryk(int pin);
+		bool begin();
+		void end();
+    	void blynk();
+
+		// returns the proximity as a percentage of the emitted IR light
+		float proximityRead();
+	private:
+		Adafruit_APDS9960 _apds9960; // proximity, light, color, gesture
+    	int _pin;
+		uint8_t _proximity;
+		void blynkPrivate();
 };
 
 #endif

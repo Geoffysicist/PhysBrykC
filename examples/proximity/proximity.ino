@@ -1,5 +1,6 @@
 #include <physbryk.h>
-#include <Arduino_APDS9960.h>
+// #include <Arduino_APDS9960.h>
+// #include <Adafruit_APDS9960.h>
 
 PhysBryk thisBryk(LED_BUILTIN);
 bool success;
@@ -18,6 +19,6 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
   thisBryk.blynk();
-  if (success) Serial.println("success");
+  if (success) Serial.println(thisBryk.proximityRead());
   
 }
